@@ -40,7 +40,7 @@ function matheval(flow, player)
 			local f = ploadstring(expression)
 			
 			player.print(flow.terminal_text_field.text:gsub(";", ""):gsub("=", "").." = "..f)
-			if f:sub(1,5) ~= "error" then
+			if type(f) == 'number' then
 				flow.terminal_text_field.text = f
 			else
 				flow.terminal_text_field.text = ""
