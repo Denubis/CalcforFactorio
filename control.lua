@@ -39,10 +39,13 @@ function matheval(flow, player)
 			
 			local f = ploadstring(expression)
 			
-			player.print(flow.terminal_text_field.text:gsub(";", ""):gsub("=", "").." = "..f)
+
 			if type(f) == 'number' then
+				player.print(flow.terminal_text_field.text:gsub(";", ""):gsub("=", "").." = "..f)
 				flow.terminal_text_field.text = f
+
 			else
+				player.print(f)
 				flow.terminal_text_field.text = ""
 			end
 		end
