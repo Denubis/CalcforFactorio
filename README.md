@@ -1,6 +1,12 @@
-# SQLforFactorio
+# Calculator for Factorio
 
-By: Brian Ballsun-Stanton
+* Version: 0.0.1
+* Factorio-Version: 0.14
+* Description: Adds an expression-evaluating calculator to the top GUI
+* License: GPL v3
+* Release: 2017-Jan-6
+* Download-Url: https://github.com/Denubis/CalcforFactorio/archive/CalcforFactorio_0.0.1.zip
+* Website: https://github.com/Denubis/CalcforFactorio
+* Category: Utility
+* Tags: Non-Game-Changing, Utility
 
-SQLite icon from their logo (public domain), downloaded from: https://www.nuget.org/packages?q=sqlite
-Gnome Terminal icon (C) GNOME developers, under a CC-BY-SA
