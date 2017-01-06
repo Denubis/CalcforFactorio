@@ -37,14 +37,34 @@ function matheval(flow, player)
 		if flow.terminal_text_field.text ~= "" then
 			expression = "return "..flow.terminal_text_field.text:gsub(";", ""):gsub("=", "")
 			
-			local f = loadstring(expression)
+			local f = ploadstring(expression)
 			
-			player.print(flow.terminal_text_field.text:gsub(";", ""):gsub("=", "").." = "..f())
-			flow.terminal_text_field.text = f()
+			player.print(flow.terminal_text_field.text:gsub(";", ""):gsub("=", "").." = "..f)
+			if f:sub(1,5) ~= "error" then
+				flow.terminal_text_field.text = f
+			else
+				flow.terminal_text_field.text = ""
+			end
 		end
 	end
 end			
 
+
+function ploadstring(expression)
+	error, result = pcall(loadstring(expression))
+	
+	--local player = game.players[1]
+	--player.print(expression)
+	--player.print(error)	
+	if error then 
+		return result
+	else		
+		return "error: "..result
+	end
+
+	
+	
+end
 
 script.on_event(defines.events.on_player_created, function(event)
 	add_top_buttons(game.players[event.player_index])
@@ -63,29 +83,12 @@ script.on_event(defines.events.on_gui_click, function(event)
 	if event.element.name == "terminal-button" then	
 		toggleBox(player)
 
-		        --> 30
-
-		--local db = sqlite3.open_memory()
---
-		--db:exec[[
-		  --CREATE TABLE test (id INTEGER PRIMARY KEY, content);
---
-		  --INSERT INTO test VALUES (NULL, 'Hello World');
-		  --INSERT INTO test VALUES (NULL, 'Hello Lua');
-		  --INSERT INTO test VALUES (NULL, 'Hello Sqlite3')
-		--]]
---
-		--for row in db:nrows("SELECT * FROM test") do
-		  --player.print(row.id, row.content)
-		--end
-	end
-	if event.element.name == "terminal_equals_button" then
+	elseif event.element.name == "terminal_equals_button" then
 		local flow = player.gui.top.terminal_flow
 
 		matheval(flow, player)
 		toggleBox(player)
-	end
-	if event.element.name == "terminal_semicolon_button" then
+	elseif event.element.name == "terminal_semicolon_button" then
 		local flow = player.gui.top.terminal_flow
 
 		matheval(flow, player)
@@ -99,13 +102,10 @@ script.on_event(defines.events.on_gui_text_changed, function(event)
 
 	if event.element.name == "terminal_text_field" then
 		local flow = player.gui.top.terminal_flow
-
 		
-		if string.ends_with(flow.terminal_text_field.text, ";") then
+		if flow.terminal_text_field.text:sub(-1,-1)== ";" then
 			matheval(flow, player)
-		end
-
-		if string.ends_with(flow.terminal_text_field.text, "=") then
+		elseif flow.terminal_text_field.text:sub(-1,-1)== "=" then
 			matheval(flow, player)
 			toggleBox(player)
 		end
