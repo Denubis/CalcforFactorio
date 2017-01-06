@@ -5,7 +5,7 @@
 * Description: Adds an expression-evaluating calculator to the top GUI
 * License: GPL v3
 * Release: 2017-Jan-6
-* Download-Url: https://github.com/Denubis/CalcforFactorio/
+* Download-Url: https://github.com/Denubis/CalcforFactorio/archive/CalcforFactorio_0.0.1.zip
 * Website: https://github.com/Denubis/CalcforFactorio
 * Category: Utility
 * Tags: Non-Game-Changing, Utility
