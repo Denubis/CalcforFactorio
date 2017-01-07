@@ -10,7 +10,7 @@ function add_top_buttons(player)
 	end
 	if not flow["terminal-button"] then
 
-		flow.add({type = "button", name = "terminal-button", style="terminal_button_main_icon", tooltip = "Click to open the math textarea."})
+		flow.add({type = "button", name = "terminal-button", caption="Calc", style="terminal_button_main_icon", sprite="Calculator_menu_sprite		", tooltip = "Click to open the math textarea."})
 	end
 
 end
@@ -69,8 +69,21 @@ function ploadstring(expression)
 	
 end
 
+function initGUI()
+	for _, player in pairs(game.players) do
+		add_top_buttons(player)
+	end
+end
+
+script.on_configuration_changed(function(event)
+	if not event or not event.mod_changes then
+      return
+    end
+    initGUI()
+end)
+
 script.on_event(defines.events.on_player_created, function(event)
-	add_top_buttons(game.players[event.player_index])
+	initGUI()
 end)
 
 script.on_event("open_terminal", function(event)

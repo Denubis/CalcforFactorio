@@ -1,5 +1,14 @@
 data:extend(
 {
+    {
+        type="sprite",
+        name="Calculator_menu_sprite",
+        filename = "__CalcforFactorio__/graphics/sprite.png",
+        priority = "extra-high-no-scale",
+        width = 128,
+        height = 128,
+        font = "font-s"
+    },
   {
     type = "font",
     name = "font-s",
@@ -59,56 +68,40 @@ data.raw["gui-style"].default["terminal_button_style"] =
     width = 32,
     height = 32,
     top_padding = 0,
-    font = "font-m"
+    font = "font-s"
 }
 
-data.raw["gui-style"].default["terminal_button_main_icon"] =
-{
+-- taken from factorio maps mod
+data.raw["gui-style"].default["terminal_button_main_icon_style"] = {
     type = "button_style",
     parent = "button_style",
+    top_padding = 1,
+    right_padding = 5,
+    bottom_padding = 1,
+    left_padding = 5,
+    left_margin = 5,
+    right_margin = 5,    
+    left_click_sound = {{
+        filename = "__core__/sound/gui-click.ogg",
+        volume = 1
+    }}
+}
+
+data.raw["gui-style"].default["terminal_button_main_icon"] = {
+    type = "button_style",
+    parent = "FactorioMaps_button_style",
     width = 32,
     height = 32,
-    cell_spacing =5 ,
+    left_margin = 5,
+    right_margin = 5,
+    top_padding = 0,
     right_padding = 0,
     bottom_padding = 0,
     left_padding = 0,
-    font = "font-m",
-    default_graphical_set =
-    {
-        type = "monolith",
-        monolith_image =
-        {
-			filename = "__CalcforFactorio__/graphics/icons.png",
-            priority = "extra-high-no-scale",
-            width = 32,
-            height = 32,
-            x = 0,
-            y = 0
-        }
-    },
-    hovered_graphical_set =
-    {
-        type = "monolith",
-        monolith_image =
-        {
-			filename = "__CalcforFactorio__/graphics/icons.png",
-            priority = "extra-high-no-scale",
-            width = 32,
-            height = 32,
-            x = 32,
-            y = 0
-        }
-    },
-    clicked_graphical_set =
-    {
-        type = "monolith",
-        monolith_image =
-        {
-			filename = "__CalcforFactorio__/graphics/icons.png",
-            width = 32,
-            height = 32,
-            x = 32,
-            y = 0
-        }
-    }
+    font = "font-s",
+    left_click_sound = {{
+        filename = "__core__/sound/gui-click.ogg",
+        volume = 1
+    }}
 }
+
