@@ -10,7 +10,7 @@ function add_top_buttons(player)
 	end
 	if not flow["terminal-button"] then
 
-		flow.add({type = "button", name = "terminal-button", caption="Calc", style="terminal_button_main_icon", sprite="Calculator_menu_sprite		", tooltip = "Click to open the math textarea."})
+		flow.add({type = "button", name = "terminal-button", caption="Calc", style="terminal_button_main_icon", tooltip = "Click to open the math textarea."})
 	end
 
 end

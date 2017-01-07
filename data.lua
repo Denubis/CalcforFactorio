@@ -1,14 +1,14 @@
 data:extend(
 {
-    {
-        type="sprite",
-        name="Calculator_menu_sprite",
-        filename = "__CalcforFactorio__/graphics/sprite.png",
-        priority = "extra-high-no-scale",
-        width = 128,
-        height = 128,
-        font = "font-s"
-    },
+    --{
+    --    type="sprite",
+    --    name="Calculator_menu_sprite",
+    --    filename = "__CalcforFactorio__/graphics/sprite.png",
+    --    priority = "extra-high-no-scale",
+    --    width = 128,
+    --    height = 128,
+    --    font = "font-s"
+    --},
   {
     type = "font",
     name = "font-s",
@@ -89,7 +89,7 @@ data.raw["gui-style"].default["terminal_button_main_icon_style"] = {
 
 data.raw["gui-style"].default["terminal_button_main_icon"] = {
     type = "button_style",
-    parent = "FactorioMaps_button_style",
+    parent = "terminal_button_main_icon_style",
     width = 32,
     height = 32,
     left_margin = 5,
